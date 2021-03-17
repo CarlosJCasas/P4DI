@@ -34,7 +34,7 @@ public class PlantaLab implements PlantaDao {
     }
 
     @Override
-    public Planta getPlanta(int uuid) {
+    public Planta getPlanta(String uuid) {
         return plantDao.getPlanta(uuid);
     }
 

@@ -1,5 +1,6 @@
 package com.tarea.p4di.UI;
 
+import android.content.Intent;
 import android.os.Bundle;
 
 import androidx.fragment.app.Fragment;
@@ -11,11 +12,13 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
+import com.google.android.material.tabs.TabItem;
 import com.tarea.p4di.CORE.MiJardinAdapter;
 import com.tarea.p4di.CORE.Planta;
 import com.tarea.p4di.DDBB.PlantaLab;
 import com.tarea.p4di.R;
 
+import java.lang.reflect.InvocationTargetException;
 import java.util.ArrayList;
 
 public class MiJardinFragment extends Fragment implements MiJardinAdapter.ItemClickListener{
@@ -51,12 +54,13 @@ public class MiJardinFragment extends Fragment implements MiJardinAdapter.ItemCl
         recy_misplantas.setAdapter(myAdapter);
 
         return rootview;
-
-
     }
 
     @Override
     public void onItemCLick(int position) {
-
+        Planta planta = listaPlantasSeleccionadas.get(position);
+        Intent intent = new Intent(requireActivity(), DetallesActivity.class);
+        intent.putExtra("id", planta.getId());
+        startActivity(intent);
     }
 }

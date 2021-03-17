@@ -16,7 +16,7 @@ interface PlantaDao {
     List<Planta> getPlantas();
 
     @Query("SELECT * FROM planta WHERE id LIKE :uuid")
-    Planta getPlanta(int uuid);
+    Planta getPlanta(String uuid);
 
     @Query("DELETE  FROM planta")
     void deleteAll();

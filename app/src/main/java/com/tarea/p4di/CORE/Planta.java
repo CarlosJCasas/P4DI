@@ -23,14 +23,21 @@ public class Planta {
     private int imagen;
     @ColumnInfo(name = "selected")
     private boolean selected;
+    @ColumnInfo(name = "url")
+    private String URL;
 
-    public Planta( String nombre, String nombreCientifico, String descripcion, int imagen, boolean selected) {
+    public Planta(){
+
+    }
+
+    public Planta( String nombre, String nombreCientifico, String descripcion, int imagen, boolean selected, String url) {
         this.id = UUID.randomUUID().toString();
         this.nombre = nombre;
         this.nombreCientifico = nombreCientifico;
         this.descripcion = descripcion;
         this.imagen = imagen;
         this.selected = selected;
+        this.URL = url;
     }
 
     @NonNull
@@ -80,5 +87,13 @@ public class Planta {
 
     public void setSelected(boolean selected) {
         this.selected = selected;
+    }
+
+    public String getURL() {
+        return URL;
+    }
+
+    public void setURL(String URL) {
+        this.URL = URL;
     }
 }
