@@ -1,11 +1,5 @@
 package com.tarea.p4di.CORE;
 
-import androidx.annotation.NonNull;
-import androidx.appcompat.app.AppCompatActivity;
-import androidx.appcompat.app.AppCompatDelegate;
-import androidx.fragment.app.Fragment;
-import androidx.fragment.app.FragmentTransaction;
-
 import android.content.Context;
 import android.content.SharedPreferences;
 import android.content.res.Configuration;
@@ -13,7 +7,12 @@ import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
 
-import com.google.android.material.tabs.TabItem;
+import androidx.annotation.NonNull;
+import androidx.appcompat.app.AppCompatActivity;
+import androidx.appcompat.app.AppCompatDelegate;
+import androidx.fragment.app.Fragment;
+import androidx.fragment.app.FragmentTransaction;
+
 import com.google.android.material.tabs.TabLayout;
 import com.tarea.p4di.DDBB.PlantaLab;
 import com.tarea.p4di.R;
@@ -27,10 +26,8 @@ public class MainActivity extends AppCompatActivity {
     private PlantaLab myPLantaLab;
     private ListaPlantasFragment listaPlantasFragment = new ListaPlantasFragment();
     private MiJardinFragment miJardinFragment = new MiJardinFragment();
-    private TabItem plantas_tab;
     private TabLayout tabLayout2;
-    private TabItem mijardin_tab;
-    boolean isNightMode;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -38,16 +35,12 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
         getSupportActionBar().setTitle("Mi jardín");
 
-        if (receiveData()){
+        if (receiveData()) {
             getDelegate().setLocalNightMode(AppCompatDelegate.MODE_NIGHT_YES);
-        }else {
+        } else {
             getDelegate().setLocalNightMode(AppCompatDelegate.MODE_NIGHT_NO);
         }
-
         tabLayout2 = findViewById(R.id.tabLayout2);
-        plantas_tab = findViewById(R.id.plantas_tab);
-        mijardin_tab = findViewById(R.id.mijardin_tab);
-
         myPLantaLab = PlantaLab.get(this);
 
         /*
@@ -85,6 +78,7 @@ public class MainActivity extends AppCompatActivity {
         ft.commit();
 
     }
+
     /*
     Crea las dos tabs de Jardin y de Plantas
      */
@@ -122,6 +116,7 @@ public class MainActivity extends AppCompatActivity {
         });
 
     }
+
     /*
     Comprueba que modo está activo, el claro o el oscuro y pone el incono en consecuencia.
      */
@@ -147,6 +142,7 @@ public class MainActivity extends AppCompatActivity {
 
         return super.onCreateOptionsMenu(menu);
     }
+
     /*
     Maneja el modo al hacer
      */
@@ -157,13 +153,13 @@ public class MainActivity extends AppCompatActivity {
                 this.getResources().getConfiguration().uiMode &
                         Configuration.UI_MODE_NIGHT_MASK;
 
-        if(id == R.id.diaNoche){
-            if(nightModeFlags == Configuration.UI_MODE_NIGHT_YES){
+        if (id == R.id.diaNoche) {
+            if (nightModeFlags == Configuration.UI_MODE_NIGHT_YES) {
                 item.setIcon(R.drawable.ic_baseline_light_mode_24);
                 getDelegate().setLocalNightMode(AppCompatDelegate.MODE_NIGHT_NO);
                 saveData(false);
 
-            }else if (nightModeFlags == Configuration.UI_MODE_NIGHT_NO){
+            } else if (nightModeFlags == Configuration.UI_MODE_NIGHT_NO) {
                 item.setIcon(R.drawable.ic_baseline_dark_mode_24);
                 getDelegate().setLocalNightMode(AppCompatDelegate.MODE_NIGHT_YES);
                 saveData(true);
@@ -171,19 +167,21 @@ public class MainActivity extends AppCompatActivity {
         }
         return super.onOptionsItemSelected(item);
     }
+
     /*
     Guarda en las preferences si está en modo oscuro o no, recibe un boolean true si esta el modo oscuro activo, false para el light
      */
-    public void saveData(boolean darkModeOn){
+    public void saveData(boolean darkModeOn) {
         SharedPreferences sharedPreferences = this.getSharedPreferences("preferencias", Context.MODE_PRIVATE);
         SharedPreferences.Editor editor = sharedPreferences.edit();
         editor.putBoolean("darkmode", darkModeOn);
         editor.apply();
     }
+
     /*
     Recibe los datos de las preferences para que cuando entras o sales de la activity se mantenga el modo
      */
-    public boolean receiveData(){
+    public boolean receiveData() {
         SharedPreferences sharedPreferences = this.getSharedPreferences("preferencias", Context.MODE_PRIVATE);
         return sharedPreferences.getBoolean("darkmode", false);
     }

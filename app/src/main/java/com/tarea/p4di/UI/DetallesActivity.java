@@ -1,18 +1,17 @@
 package com.tarea.p4di.UI;
 
-import androidx.appcompat.app.AppCompatActivity;
-import androidx.appcompat.app.AppCompatDelegate;
-import androidx.appcompat.widget.Toolbar;
-
 import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
-import android.net.Uri;
 import android.os.Bundle;
 import android.webkit.WebResourceRequest;
 import android.webkit.WebView;
 import android.webkit.WebViewClient;
 import android.widget.ImageView;
+
+import androidx.appcompat.app.AppCompatActivity;
+import androidx.appcompat.app.AppCompatDelegate;
+import androidx.appcompat.widget.Toolbar;
 
 import com.google.android.material.textview.MaterialTextView;
 import com.tarea.p4di.CORE.Planta;
@@ -32,9 +31,9 @@ public class DetallesActivity extends AppCompatActivity {
         /*
         Aplica el modo oscuro o no dependiendo de las shared preferences
          */
-        if (receiveData()){
+        if (receiveData()) {
             getDelegate().setLocalNightMode(AppCompatDelegate.MODE_NIGHT_YES);
-        }else {
+        } else {
             getDelegate().setLocalNightMode(AppCompatDelegate.MODE_NIGHT_NO);
         }
 
@@ -57,7 +56,7 @@ public class DetallesActivity extends AppCompatActivity {
         Comprueba si el link en el que se hace click es de la wikipedia o no
         Si es de la wikipedia lo abre en el mismo webview sino lo abre en el navegador por defecto
          */
-        webview.setWebViewClient(new WebViewClient(){
+        webview.setWebViewClient(new WebViewClient() {
             @Override
             public boolean shouldOverrideUrlLoading(WebView view, WebResourceRequest request) {
                 if (request.getUrl().toString().contains("wikipedia")) return false;
@@ -76,7 +75,7 @@ public class DetallesActivity extends AppCompatActivity {
       Recibe los datos de las preferences para que cuando entras o sales de la activity se mantenga el modo
      */
 
-    public boolean receiveData(){
+    public boolean receiveData() {
         SharedPreferences sharedPreferences = this.getSharedPreferences("preferencias", Context.MODE_PRIVATE);
         return sharedPreferences.getBoolean("darkmode", false);
     }

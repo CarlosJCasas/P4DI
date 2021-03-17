@@ -23,7 +23,6 @@ public class MiJardinAdapter extends RecyclerView.Adapter<MiJardinAdapter.ViewHo
     public MiJardinAdapter(Context context, ArrayList<Planta> listaPlantas, ItemClickListener itemClickListener) {
         this.context = context;
         this.itemClickListener = itemClickListener;
-
         this.myLayoutInflater = LayoutInflater.from(context);
         this.listaPlantas = listaPlantas;
 
@@ -34,7 +33,7 @@ public class MiJardinAdapter extends RecyclerView.Adapter<MiJardinAdapter.ViewHo
     public ViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
 
         //Crear item
-        View view = myLayoutInflater.inflate(R.layout.mi_jardin_item_adapter,parent,false);
+        View view = myLayoutInflater.inflate(R.layout.mi_jardin_item_adapter, parent, false);
         return new ViewHolder(view, itemClickListener);
     }
 
@@ -49,6 +48,7 @@ public class MiJardinAdapter extends RecyclerView.Adapter<MiJardinAdapter.ViewHo
     public int getItemCount() {
         return listaPlantas.size();
     }
+
     public void setClickListener(ItemClickListener itemClickListener) {
         this.itemClickListener = itemClickListener;
     }
@@ -58,11 +58,10 @@ public class MiJardinAdapter extends RecyclerView.Adapter<MiJardinAdapter.ViewHo
     }
 
 
-
-            /*
-            VIEWHOLDER
-             */
-    public class ViewHolder extends RecyclerView.ViewHolder implements View.OnClickListener{
+    /*
+    VIEWHOLDER
+     */
+    public class ViewHolder extends RecyclerView.ViewHolder implements View.OnClickListener {
         ImageView imageView;
         TextView textView;
         ItemClickListener itemClickListener;
@@ -72,22 +71,15 @@ public class MiJardinAdapter extends RecyclerView.Adapter<MiJardinAdapter.ViewHo
             imageView = itemView.findViewById(R.id.mijardin_imageview);
             textView = itemView.findViewById(R.id.mijardin_textview);
             this.itemClickListener = itemClickListener;
-
             itemView.setOnClickListener(this);
-
-
         }
 
 
-    @Override
-    public void onClick(View v) {
-        if (itemClickListener != null) {
-            itemClickListener.onItemCLick(getAdapterPosition());
+        @Override
+        public void onClick(View v) {
+            if (itemClickListener != null) {
+                itemClickListener.onItemCLick(getAdapterPosition());
+            }
         }
     }
-
-
-}
-
-
 }

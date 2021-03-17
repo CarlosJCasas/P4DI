@@ -4,7 +4,6 @@ import android.content.Context;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.CompoundButton;
 
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
@@ -41,13 +40,10 @@ public class ListaPlantasAdapter extends RecyclerView.Adapter<ListaPlantasAdapte
         Planta planta = listaPlantas.get(position);
         holder.switchMaterial.setText(planta.getNombre());
         holder.switchMaterial.setChecked(planta.isSelected());
-        holder.switchMaterial.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
-            @Override
-            public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
-                planta.setSelected(isChecked);
-                listaPlantas.set(position, planta);
-                PlantaLab.get(context).updatePlanta(planta);
-            }
+        holder.switchMaterial.setOnCheckedChangeListener((buttonView, isChecked) -> {
+            planta.setSelected(isChecked);
+            listaPlantas.set(position, planta);
+            PlantaLab.get(context).updatePlanta(planta);
         });
     }
 
@@ -56,11 +52,12 @@ public class ListaPlantasAdapter extends RecyclerView.Adapter<ListaPlantasAdapte
         return listaPlantas.size();
     }
 
-                /*
-                VIEWHOLDER
-                 */
+    /*
+    VIEWHOLDER
+     */
     public class ViewHolder extends RecyclerView.ViewHolder {
         SwitchMaterial switchMaterial;
+
         public ViewHolder(@NonNull View itemView) {
             super(itemView);
             switchMaterial = itemView.findViewById(R.id.switch_planta);

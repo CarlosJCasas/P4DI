@@ -28,6 +28,7 @@ public class Planta {
 
     public Planta(){
 
+        id = null;
     }
 
     public Planta( String nombre, String nombreCientifico, String descripcion, int imagen, boolean selected, String url) {

@@ -1,17 +1,16 @@
 package com.tarea.p4di.UI;
 
 import android.os.Bundle;
+import android.view.LayoutInflater;
+import android.view.View;
+import android.view.ViewGroup;
 
 import androidx.fragment.app.Fragment;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
-import android.view.LayoutInflater;
-import android.view.View;
-import android.view.ViewGroup;
-
-import com.tarea.p4di.CORE.Planta;
 import com.tarea.p4di.CORE.ListaPlantasAdapter;
+import com.tarea.p4di.CORE.Planta;
 import com.tarea.p4di.DDBB.PlantaLab;
 import com.tarea.p4di.R;
 
@@ -24,6 +23,7 @@ public class ListaPlantasFragment extends Fragment {
     View rootview;
     ListaPlantasAdapter listaPlantasAdapter;
     RecyclerView recyclerViewPlantas;
+
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
