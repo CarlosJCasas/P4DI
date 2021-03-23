@@ -2,25 +2,25 @@
 <resources xmlns:tools="http://schemas.android.com/tools">
     <!-- Base application theme. -->
     <style name="Theme.P4DI" parent="Theme.MaterialComponents.DayNight.DarkActionBar">
-        <item name="android:forceDarkAllowed">true</item>
         <!-- Primary brand color. -->
-        <item name="android:colorPrimary">@color/primaryLightColor</item>
+        <item name="colorPrimary">@color/primaryLightColor</item>
         <item name="colorPrimaryVariant">@color/primaryDarkColor</item>
         <item name="colorOnPrimary">@color/primaryTextColor</item>
+        <item name="strokeColor">@color/primaryLightColor</item>
         <!-- Secondary brand color. -->
         <item name="colorSecondary">@color/secondaryLightColor</item>
         <item name="colorSecondaryVariant">@color/secondaryDarkColor</item>
         <item name="colorOnSecondary">@color/secondaryTextColor</item>
         <!-- Status bar color. -->
         <item name="android:statusBarColor" tools:targetApi="l">?attr/colorPrimaryVariant</item>
-        <item name="android:actionBarStyle">@style/Myactionbar</item>
-        <item name="android:toolbarStyle">@style/Myactionbar</item>
+        <item name="actionBarStyle">@style/MyActionBar</item>
         <!-- Customize your theme here. -->
     </style>
-    <style name="Myactionbar" parent="Theme.MaterialComponents.DayNight.DarkActionBar">
-        <item name="android:background">@color/primaryColor</item>
-        <item name="android:backgroundTint">@color/primaryColor</item>
 
+    <style name="MyActionBar" parent="Widget.AppCompat.ActionBar">
+        <item name="titleTextStyle">@style/ActionBarTextStyle</item>
+        <item name="background">@color/primaryLightColor</item>
     </style>
 
+    <style name="ActionBarTextStyle" parent="TextAppearance.MaterialComponents.Headline6"/>
 </resources>

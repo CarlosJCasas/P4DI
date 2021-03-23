@@ -6,6 +6,7 @@ import android.view.View;
 import android.view.ViewGroup;
 
 import androidx.annotation.NonNull;
+import androidx.cardview.widget.CardView;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.google.android.material.switchmaterial.SwitchMaterial;
@@ -57,7 +58,7 @@ public class ListaPlantasAdapter extends RecyclerView.Adapter<ListaPlantasAdapte
      */
     public class ViewHolder extends RecyclerView.ViewHolder {
         SwitchMaterial switchMaterial;
-
+        CardView card;
         public ViewHolder(@NonNull View itemView) {
             super(itemView);
             switchMaterial = itemView.findViewById(R.id.switch_planta);

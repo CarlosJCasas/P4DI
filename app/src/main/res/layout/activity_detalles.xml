@@ -15,7 +15,7 @@
         android:background="@android:color/transparent"
         android:layout_width="match_parent"
         android:layout_height="?attr/actionBarSize"
-        android:elevation="4dp"
+        android:elevation="1dp"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintStart_toStartOf="parent"/>
 
@@ -49,8 +49,7 @@
         android:textSize="14sp"
         android:text="Nombre cienfico planta"
         android:gravity="center"
-        android:paddingTop="3dp"
-        android:paddingBottom="3dp"
+        android:paddingBottom="6dp"
         app:layout_constraintTop_toBottomOf="@id/nombreComun"
         app:layout_constraintStart_toStartOf="parent"/>
 

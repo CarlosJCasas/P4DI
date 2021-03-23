@@ -8,11 +8,13 @@ import android.view.Menu;
 import android.view.MenuItem;
 
 import androidx.annotation.NonNull;
+import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.app.AppCompatDelegate;
 import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentTransaction;
 
+import com.google.android.material.dialog.MaterialAlertDialogBuilder;
 import com.google.android.material.tabs.TabLayout;
 import com.tarea.p4di.DDBB.PlantaLab;
 import com.tarea.p4di.R;
@@ -106,20 +108,19 @@ public class MainActivity extends AppCompatActivity {
 
             @Override
             public void onTabUnselected(TabLayout.Tab tab) {
-
             }
 
             @Override
             public void onTabReselected(TabLayout.Tab tab) {
-
             }
         });
 
     }
 
+
     /*
-    Comprueba que modo está activo, el claro o el oscuro y pone el incono en consecuencia.
-     */
+        Comprueba que modo está activo, el claro o el oscuro y pone el incono en consecuencia.
+         */
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
         getMenuInflater().inflate(R.menu.options_menu, menu);
@@ -139,7 +140,6 @@ public class MainActivity extends AppCompatActivity {
 
                 break;
         }
-
         return super.onCreateOptionsMenu(menu);
     }
 
@@ -152,7 +152,6 @@ public class MainActivity extends AppCompatActivity {
         int nightModeFlags =
                 this.getResources().getConfiguration().uiMode &
                         Configuration.UI_MODE_NIGHT_MASK;
-
         if (id == R.id.diaNoche) {
             if (nightModeFlags == Configuration.UI_MODE_NIGHT_YES) {
                 item.setIcon(R.drawable.ic_baseline_light_mode_24);

@@ -3,6 +3,8 @@ package com.tarea.p4di.UI;
 import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
+import android.graphics.PorterDuff;
+import android.graphics.drawable.Drawable;
 import android.os.Bundle;
 import android.webkit.WebResourceRequest;
 import android.webkit.WebView;
@@ -12,6 +14,7 @@ import android.widget.ImageView;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.app.AppCompatDelegate;
 import androidx.appcompat.widget.Toolbar;
+import androidx.core.content.ContextCompat;
 
 import com.google.android.material.textview.MaterialTextView;
 import com.tarea.p4di.CORE.Planta;
@@ -28,6 +31,11 @@ public class DetallesActivity extends AppCompatActivity {
         setSupportActionBar(toolbar);
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
         getSupportActionBar().setTitle("");
+        final Drawable upArrow = ContextCompat.getDrawable(getApplicationContext(),R.drawable.ic_baseline_arrow_back_24);
+        upArrow.setColorFilter(getColor(R.color.secondaryLightColor), PorterDuff.Mode.SRC_ATOP);
+        getSupportActionBar().setHomeAsUpIndicator(upArrow);
+
+
         /*
         Aplica el modo oscuro o no dependiendo de las shared preferences
          */
