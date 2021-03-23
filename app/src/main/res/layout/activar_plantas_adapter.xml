@@ -19,6 +19,4 @@
         android:textSize="20sp"
         android:textStyle="normal"
         />
-
-
 </com.google.android.material.card.MaterialCardView>
